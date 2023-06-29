@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake: build",
+			"command": "build",
+			"targets": [
+				"all"
+			],
+			"preset": "${command:cmake.activeBuildPresetName}",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"detail": "CMake build task"
+		},
+		{
+			"type": "shell",
+			"label": "CMake: install \"animate11\"",
+			"command": "cmake --install build/animate11 --config Release",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"dependsOn": "CMake: build",
+			"dependsOrder": "sequence",
+			"detail": "CMake install task"
+		}
+	]
+}
