@@ -10,6 +10,7 @@ target_link_libraries(
     ${PROJECT_NAME} PRIVATE
     dwmapi.dll
     animate_jsapi
+    pugixml::static
 )
 
 install(
