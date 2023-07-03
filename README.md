@@ -8,7 +8,7 @@ You can read more about creating native addons [**here**](https://github.com/Ado
 | Name | Description | Downloads |
 | - | - | - |
 | [**animate11**](https://github.com/DeMineArchiver/animate-test-addons/blob/master/animate11/README.md) <sup>new</sup> | <q>make Animate ***trully* immersive**!</q><br>This addon colors **all titlebars** in Adobe Animate the same as their windows | [**Latest**](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.0.1) |
-| [**AltBlocker**](https://github.com/DeMineArchiver/animate-test-addons/blob/master/altblocker/README.md) <sup>new</sup> | <q>No more **alt**!</q><br>Prevents <kbd>⎇ Alt</kbd> from **blocking** keyboard input in **Adobe Animate** | [**Latest**]([https://](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/altblocker-v0.0.1))
+| [**AltBlocker**](https://github.com/DeMineArchiver/animate-test-addons/blob/master/altblocker/README.md) <sup>new</sup> | <q>No more **alt**!</q><br>Prevents <kbd>⎇ Alt</kbd> from **blocking** keyboard input in **Adobe Animate** | [**Latest**](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/altblocker-v0.0.1)
 | [**Qt in Animate**](https://github.com/DeMineArchiver/animate-test-addons/blob/master/qt-in-animate/README.md) <sup>new</sup> | Proof of concept: use **Qt** in an **Animate Native Addon** | **Coming soon** |
 
 

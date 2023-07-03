@@ -27,6 +27,9 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
     <span>and <b>all</b> the other dialogs in Adobe Animate!</span>
 </div>
 
+## Releases
+- [**0.0.1**](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.0.1 "animate11-v0.0.1") (pre-release)
+
 ## Installation
 
 See [**# Installation**](https://github.com/DeMineArchiver/animate-test-addons#Installation "github.com/DeMineArchiver/animate-test-addons")
