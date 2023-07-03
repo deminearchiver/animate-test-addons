@@ -15,3 +15,4 @@ add_subdirectory("lib/pugixml")
 
 add_subdirectory("animate11")
 add_subdirectory("qt-in-animate")
+add_subdirectory("altblocker")
