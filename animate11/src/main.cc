@@ -1,7 +1,7 @@
-#include <jsapi/api.h>
 #include <Windows.h>
 #include <dwmapi.h>
 #include <string>
+#include <animate/jsapi.h>
 
 std::wstring GetWindowClassName(HWND hWnd) {
     wchar_t class_name[MAX_PATH + 1];
@@ -25,8 +25,11 @@ LRESULT WINAPI CallWndRetProc(int code, WPARAM wParam, LPARAM lParam) {
             LONG style = GetWindowLongW(info->hwnd, GWL_STYLE);
             if((style & WS_CAPTION) == WS_CAPTION || (style & WS_DLGFRAME) == WS_DLGFRAME) {
                 std::wstring class_name = GetWindowClassName(info->hwnd);
-                if(class_name == L"PLUGPLUG_UI_NATIVE_WINDOW_CLASS_NAME") SetWindowCaptionColor(info->hwnd, 0x1b1b1b);
-                else SetWindowCaptionColor(info->hwnd, 0x333333);
+                if(class_name == L"PLUGPLUG_UI_NATIVE_WINDOW_CLASS_NAME") {
+                    SetWindowCaptionColor(info->hwnd, 0x1b1b1b);
+                } else {
+                    SetWindowCaptionColor(info->hwnd, 0x333333);
+                }
             }
             break;
         }
@@ -35,9 +38,15 @@ LRESULT WINAPI CallWndRetProc(int code, WPARAM wParam, LPARAM lParam) {
     return CallNextHookEx(hook, code, wParam, lParam);
 }
 
+// std::map<int, std::pair<COLORREF, COLORREF>> colors = {
+//     { 0, { 0x1f1f1f, 0x1b1b1b }},
+//     { 25, { 0x333333, 0x1b1b1b }},
+//     { 75, { 0xf5f5f5, 0xfdfdfd }},
+//     { 100, { 0xffffff, 0xfdfdfd }}
+// };
+
 ANIMATE_INIT(Init)
-void Init(animate::jsapi::Environment env) {
-    // MessageBoxW(nullptr, L"Addon loaded!", L"animate11", MB_OK | MB_ICONINFORMATION);
+void Init() {
     hook = SetWindowsHookExW(WH_CALLWNDPROCRET, &CallWndRetProc, nullptr, GetCurrentThreadId());
 }
 
