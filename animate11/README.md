@@ -1,29 +1,31 @@
 # animate11
 
-> make Animate ***trully* immersive**!
+<div align="center">
+
+<q>make Animate ***trully* immersive**!</q>
 
 This addon colors **all titlebars** in Adobe Animate the same as their windows
+</div>
 
-<details>
-<summary><h3>Screenshots</h3></summary>
-    <div align="center"><span><q><b>New Document</b></q> dialog</span></div>
-    </br>
-    <div align="center">
-        <img src="./images/new_document_dark.png" alt="Dark Theme" width="50%" />
-    </div>
-    </br>
-    <div align="center"><span><q><b>Settings</b></q> dialog</span></div>
-    </br>
-    <div align="center">
-        <img src="./images/settings_dark.png" alt="Dark Theme" width="50%" />
-    </div>
-    </br>
-    <div align="center"><span><q><b>Save Changes</b></q> dialog</span></div>
-    </br>
-    <div align="center">
-        <img src="./images/save_changes_dark.png" alt="Dark Theme" width="30%" />
-    </div>
-</details>
+<div align="center">
+    <h2>animate 11 supports:</h2>
+    <details>
+        <summary><q><b>New Document</b></q> dialog</summary>
+        <br>
+        <img src="./images/new_document_dark.png" alt="Dark Theme" />
+    </details>
+    <details>
+        <summary><q><b>Settings</b></q> dialog</summary>
+        <br>
+        <img src="./images/settings_dark.png" alt="Dark Theme" />
+    </details>
+    <details>
+        <summary><q><b>Save Changes</b></q> dialog</summary>
+        <br>
+        <img src="./images/save_changes_dark.png" alt="Dark Theme" />
+    </details>
+    <span>and <b>all</b> the other dialogs in Adobe Animate!</span>
+</div>
 
 ## Installation
 
