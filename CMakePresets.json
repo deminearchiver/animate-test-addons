@@ -17,6 +17,10 @@
                 "CMAKE_CXX_COMPILER": "clang-cl.exe",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "1"
             },
+            "architecture": {
+                "strategy": "external",
+                "value": "x64"
+            },
             "condition": {
                 "type": "equals",
                 "lhs": "${hostSystemName}",
