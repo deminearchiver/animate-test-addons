@@ -82,7 +82,6 @@ void LoadTheme() {
                 if(!child.child("key") || !child.child("float")) continue;
                 if(std::strcmp(child.child("key").text().as_string(), "ThemeBrightness") == 0) theme_brightness = child.child("float").text().as_float() * 100;
             }
-            MessageBoxW(nullptr, std::to_wstring(theme_brightness).c_str(), L"bright", MB_OK | MB_ICONEXCLAMATION);
         }
     }
 }
