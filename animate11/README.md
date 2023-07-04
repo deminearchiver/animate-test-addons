@@ -74,5 +74,8 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
 - [**0.0.1**](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.0.1 "animate11-v0.0.1") (pre-release)
 
 ## Installation
+### System Requirements
+- **Windows 11 21H2** or newer
+- **Adobe Animate 2020** or newer
 
 See [**# Installation**](https://github.com/DeMineArchiver/animate-test-addons#Installation "github.com/DeMineArchiver/animate-test-addons")
