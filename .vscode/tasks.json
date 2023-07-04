@@ -10,7 +10,10 @@
 				"animate11"
 			],
 			"preset": "${command:cmake.activeBuildPresetName}",
-			"group": "build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
 			"problemMatcher": []
 		},
 		{
@@ -18,7 +21,10 @@
 			"label": "CMake: install \"animate11\"",
 			"detail": "CMake task to build and install the \"animate11\" target",
 			"command": "cmake --install build/animate11 --config Release",
-			"group": "test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
 			"problemMatcher": [],
 			"dependsOn": "CMake: build \"animate11\"",
 			"dependsOrder": "sequence"
@@ -34,7 +40,7 @@
 			"preset": "${command:cmake.activeBuildPresetName}",
 			"group": {
 				"kind": "build",
-				"isDefault": true
+				"isDefault": false
 			},
 			"problemMatcher": []
 		},
@@ -45,7 +51,7 @@
 			"command": "cmake --install build/altblocker --config Release",
 			"group": {
 				"kind": "test",
-				"isDefault": true
+				"isDefault": false
 			},
 			"problemMatcher": [],
 			"dependsOn": "CMake: build \"altblocker\"",
