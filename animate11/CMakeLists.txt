@@ -1,6 +1,6 @@
 project(
     animate11
-    VERSION 0.0.1
+    VERSION 0.1.0
     DESCRIPTION "This addon colors all titlebars in Adobe Animate the same as their windows"
     LANGUAGES CXX
 )
