@@ -14,7 +14,7 @@ You can read more about creating native addons [**here**](https://github.com/Ado
 
 ## Installation
 In this section there are common **installation instructions** for **most** of the addons above.
-> **Before** installing an addon, check its respective page for **installation remarks**.
+> **Note** **before** installing an addon, **check** its respective **page** for **installation remarks**, such as **system requirements**.
 
 ### 1. Download the addon
 **Download** the file ending with `.dll` from the [**releases**](https:// "Releases") page.
