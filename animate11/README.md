@@ -9,17 +9,14 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
 
 <div align="center">
     <h2>animate 11 supports:</h2>
-    <blockquote>
-        <b>Note:</b>
-        only <b>Dark</b> and <b>Light</b> themes are demonstrated
-    </blockquote>
     <details>
         <summary><q><b>New Document</b></q> dialog</summary>
         <br>
+        <blockquote><b>Note</b>: this dialog <b>explicitly</b> has only <b>2 variants</b></blockquote>
         <table>
             <tr>
-                <th>Dark</th>
-                <th>Light</th>
+                <th>Dark & Darkest</th>
+                <th>Light & Lightest</th>
             </tr>
             <tr>
                 <td><img src="./images/new_document_dark.png" alt="Dark Theme" /></td>
@@ -33,11 +30,19 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
         <table>
             <tr>
                 <th>Dark</th>
-                <th>Light</th>
+                <th>Darkest</th>
             </tr>
             <tr>
                 <td><img src="./images/settings_dark.png" alt="Dark Theme" /></td>
-                <td><img src="./images/settings_light.png" alt="Light Theme" /></td>
+                <td><img src="./images/settings_darkest.png" alt="Light Theme" /></td>
+            </tr>
+            <tr>
+                <th>Light</th>
+                <th>Lightest</th>
+            </tr>
+            <tr>
+                <td><img src="./images/settings_light.png" alt="Dark Theme" /></td>
+                <td><img src="./images/settings_lightest.png" alt="Light Theme" /></td>
             </tr>
         </table>
     </details>
@@ -46,12 +51,16 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
         <br>
         <table>
             <tr>
+                <th>Darkest</th>
                 <th>Dark</th>
                 <th>Light</th>
+                <th>Lightest</th>
             </tr>
             <tr>
+                <td><img src="./images/save_changes_darkest.png" alt="Dark Theme" /></td>
                 <td><img src="./images/save_changes_dark.png" alt="Dark Theme" /></td>
                 <td><img src="./images/save_changes_light.png" alt="Light Theme" /></td>
+                <td><img src="./images/save_changes_lightest.png" alt="Light Theme" /></td>
             </tr>
         </table>
     </details>
