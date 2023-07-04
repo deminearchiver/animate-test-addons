@@ -1,7 +1,7 @@
 #pragma once
 
-#define WIDE_TO_SHORT(value) (unsigned short*)(value)
-#define SHORT_TO_WIDE(value) (const wchar_t*)(value)
+#define ANIMATE_SHORT(value) (unsigned short*)(value)
+#define ANIMATE_WIDE(value) (const wchar_t*)(value)
 #define ANIMATE_OPTIONAL(method_ptr, fallback, ...) (method_ptr ? ((*method_ptr)(__VA_ARGS__)) : fallback)
 
 #define ANIMATE_METHOD(name) animate::jsapi::Boolean name(animate::jsapi::Context* context, animate::jsapi::Object* object, unsigned int argc, animate::jsapi::Value* argv, animate::jsapi::Value* return_value)
@@ -10,6 +10,12 @@
 #define ANIMATE_QUICK(name, args, body) \
 auto name = ([](animate::jsapi::Context* context, animate::jsapi::Object* object, unsigned int argc, animate::jsapi::Value* argv, animate::jsapi::Value* return_value) -> animate::jsapi::Boolean body); \
 animate::jsapi::Register(L#name, name, args);
+
+#define ANIMATE_WIDE2(value) L##value
+#define ANIMATE_WIDE1(value) ANIMATE_WIDE2(value)
+#define ANIMATE_WIDE_FILE ANIMATE_WIDE1(__FILE__)
+#define ANIMATE_EVAL(context, object, script, return_value) animate::jsapi::Eval(context, object, script, return_value, ANIMATE_WIDE_FILE, __LINE__)
+#define ANIMATE_EVAL_PRIVATE(context, object, script, return_value) animate::jsapi::Eval(context, object, script, return_value)
 
 namespace animate {
     namespace jsapi {
@@ -24,9 +30,9 @@ namespace animate {
         typedef struct {
           Object* library;
           Boolean (*DefineFunction)(Object* library, unsigned short* name, APIMethod method, unsigned int argc);
-          unsigned short* (*ValueToString)(Context* context, Value value, unsigned int* length);
-          unsigned char* (*ValueToBytes)(Context* context, Value value, unsigned int* length);
-          Boolean (*ValueToInteger)(Context* context, Value value, long* long_ptr);
+          unsigned short* (*ValueToString)(Context* context, Value value, unsigned int* length_ptr);
+          unsigned char* (*ValueToBytes)(Context* context, Value value, unsigned int* length_ptr);
+          Boolean (*ValueToInteger)(Context* context, Value value, long long* long_ptr);
           Boolean (*ValueToDouble)(Context* context, Value value, double* double_ptr);
           Boolean (*ValueToBoolean)(Context* context, Value value, Boolean* boolean_ptr);
           Boolean (*ValueToObject)(Context* context, Value value, Object** object_ptr);
@@ -35,7 +41,7 @@ namespace animate {
           Boolean (*DoubleToValue)(Context* context, double number, Value* value);
           unsigned short* (*ObjectType)(Object* object);
           Object* (*NewArrayObject)(Context* context, unsigned int length, Value* value);
-          long (*GetArrayLength)(Context* context, Object* object);
+          long long (*GetArrayLength)(Context* context, Object* object);
           Boolean (*GetElement)(Context* context, Object* object, unsigned int index, Value* value);
           Boolean (*SetElement)(Context* context, Object* object, unsigned int index, Value* value);
           Boolean (*ExecuteScript)(Context* context, Object* object, unsigned short* script, unsigned int size, unsigned short* file, unsigned int line, Value* return_value);
@@ -43,14 +49,67 @@ namespace animate {
         } Environment;
         extern Environment env;
 
+        inline const wchar_t* ValueToString(Context* context, Value value, unsigned int* length_ptr) {
+            return ANIMATE_WIDE(ANIMATE_OPTIONAL(env.ValueToString, nullptr, context, value, length_ptr));
+        }
+        inline Boolean StringToValue(Context* context, const wchar_t* string, Value* value) {
+            return ANIMATE_OPTIONAL(env.StringToValue, false, context, ANIMATE_SHORT(string), 0, value);
+        }
+
+        inline Boolean ValueToInteger(Context* context, Value value, long long* long_ptr) {
+            return ANIMATE_OPTIONAL(env.ValueToInteger, false, context, value, long_ptr);
+        }
+        inline Value IntegerToValue(long long number) {
+            return ((Value) number << 1) | 0x1;
+        }
+
+        inline Boolean ValueToDouble(Context* context, Value value, double* double_ptr) {
+            return ANIMATE_OPTIONAL(env.ValueToDouble, false, context, value, double_ptr);
+        }
+        inline Boolean DoubleToValue(Context* context, double number, Value* value) {
+            return ANIMATE_OPTIONAL(env.DoubleToValue, false, context, number, value);
+        }
+
+        inline Boolean ValueToBoolean(Context* context, Value value, Boolean* boolean_ptr) {
+            return ANIMATE_OPTIONAL(env.ValueToBoolean, false, context, value, boolean_ptr);
+        }
+        inline Value BooleanToValue(Boolean boolean) {
+            return ((Value) boolean << 3) | 0x6;
+        }
+
+        inline Boolean ValueToObject(Context* context, Value value, Object** object_ptr) {
+            return ANIMATE_OPTIONAL(env.ValueToObject, false, context, value, object_ptr);
+        }
+        inline Value ObjectToValue(Object* object) {
+            return (Value) object;
+        }
+
+        inline const wchar_t* ObjectType(Object* object) {
+            return ANIMATE_WIDE(ANIMATE_OPTIONAL(env.ObjectType, nullptr, object));
+        }
+
+
+
         inline Boolean Register(const wchar_t* name, APIMethod method, unsigned int argc) {
-            return ANIMATE_OPTIONAL(env.DefineFunction, false, env.library, WIDE_TO_SHORT(name), method, argc);
+            return ANIMATE_OPTIONAL(env.DefineFunction, false, env.library, ANIMATE_SHORT(name), method, argc);
+        }
+
+        // TODO: do something with __FILE__ and __LINE__
+        inline Boolean Eval(Context* context, Object* object, const wchar_t* script, Value* return_value, const wchar_t* file, unsigned int line) {
+            return ANIMATE_OPTIONAL(env.ExecuteScript, false, context, object, ANIMATE_SHORT(script), 0, ANIMATE_SHORT(file), line, return_value);
+        }
+        inline Boolean Eval(Context* context, Object* object, const wchar_t* script, Value* return_value) {
+            return Eval(context, object, script, return_value, L"", 0);
+        }
+
+        inline Boolean Throw(Context* context, const wchar_t* error) {
+            return ANIMATE_OPTIONAL(env.ReportError, false, context, ANIMATE_SHORT(error), 0);
         }
     }
 }
 
-#undef WIDE_TO_SHORT
-#undef SHORT_TO_WIDE
+#undef ANIMATE_SHORT
+#undef ANIMATE_SHORT
 #undef ANIMATE_OPTIONAL
 
 
