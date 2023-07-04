@@ -1,5 +1,5 @@
 {
-    "version": 6,
+    "version": 5,
     "cmakeMinimumRequired": {
         "major": 3,
         "minor": 25,
@@ -35,6 +35,13 @@
             "description": "",
             "configurePreset": "windows",
             "configuration": "Release"
+        },
+        {
+            "name": "debug",
+            "displayName": "x64 Debug",
+            "description": "",
+            "configurePreset": "windows",
+            "configuration": "Debug"
         }
     ]
 }
