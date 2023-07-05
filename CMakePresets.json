@@ -15,6 +15,7 @@
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang-cl.exe",
                 "CMAKE_CXX_COMPILER": "clang-cl.exe",
+                "CMAKE_RC_COMPILER": "llvm-rc.exe",
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "1"
             },
             "architecture": {

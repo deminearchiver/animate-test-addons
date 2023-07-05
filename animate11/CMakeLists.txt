@@ -1,11 +1,17 @@
 project(
     animate11
-    VERSION 0.1.0
+    VERSION 0.1.2
     DESCRIPTION "This addon colors all titlebars in Adobe Animate the same as their windows"
     LANGUAGES CXX
 )
 
 # qt_standard_project_setup()
+
+# configure_file(
+#     "src/version.rc.in"
+#     "version.rc"
+#     @ONLY
+# )
 
 file(
     GLOB animate11_SRC
@@ -14,7 +20,7 @@ file(
 # qt_add_library(${PROJECT_NAME} SHARED "${animate11_SRC}")
 add_library(${PROJECT_NAME} SHARED "${animate11_SRC}")
 
-target_link_libraries(${PROJECT_NAME} PRIVATE animate_jsapi dwmapi.dll pugixml::static)
+target_link_libraries(${PROJECT_NAME} PRIVATE animate_jsapi pugixml::static)
 target_include_directories(${PROJECT_NAME} PRIVATE "src")
 set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE OFF MACOSX_BUNDLE OFF)
 

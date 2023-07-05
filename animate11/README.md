@@ -69,7 +69,8 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
 
 ## Releases
 > **Warning** **pre-releases** might contain **critical bugs**!
-- [**0.1.0** <sup>latest</sup>](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.1.0 "animate11-v0.1.0") (pre-release)
+- [**0.1.2** <sup>latest</sup>](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.1.2 "animate11-v0.1.2") (pre-release)
+- [**0.1.0**](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.1.0 "animate11-v0.1.0") (pre-release)
 
 - [**0.0.1**](https://github.com/DeMineArchiver/animate-test-addons/releases/tag/animate11-v0.0.1 "animate11-v0.0.1") (pre-release)
 
