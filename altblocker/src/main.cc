@@ -1,9 +1,9 @@
 #include <animate/jsapi.h>
 #include <Windows.h>
 
-HHOOK gm_hook;
+HHOOK hook;
 LRESULT WINAPI GetMessageProc(int code, WPARAM wParam, LPARAM lParam) {
-    if(code < 0) return CallNextHookEx(gm_hook, code, wParam, lParam);
+    if(code < 0) return CallNextHookEx(hook, code, wParam, lParam);
     MSG* info = reinterpret_cast<MSG*>(lParam);
     switch(info->message) {
         case WM_SYSKEYDOWN:
@@ -14,16 +14,16 @@ LRESULT WINAPI GetMessageProc(int code, WPARAM wParam, LPARAM lParam) {
             break;
         }
     }
-    return CallNextHookEx(gm_hook, code, wParam, lParam);
+    return CallNextHookEx(hook, code, wParam, lParam);
 }
 
 ANIMATE_INIT(Init)
 void Init() {
-    gm_hook = SetWindowsHookExW(WH_GETMESSAGE, &GetMessageProc, nullptr, GetCurrentThreadId());
+    hook = SetWindowsHookExW(WH_GETMESSAGE, &GetMessageProc, nullptr, GetCurrentThreadId());
 }
 
 ANIMATE_TERMINATE(Terminate)
 int Terminate() {
-    UnhookWindowsHookEx(gm_hook);
+    UnhookWindowsHookEx(hook);
     return 0;
 }
