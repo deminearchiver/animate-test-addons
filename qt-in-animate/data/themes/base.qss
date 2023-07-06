@@ -1,0 +1,45 @@
+* {
+    color: animate(text);
+    font-family: "Adobe Clean";
+    font-size: 14px;
+    
+    padding: 0;
+    margin: 0;
+    
+    outline: none;
+}
+
+QDialog {
+    background-color: animate(background);
+}
+
+
+
+
+QPushButton {
+    /* Colors */
+    color: animate(text);
+    border-color: animate(text);
+    background-color: animate(background);
+
+
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 16px;
+
+    min-width: 76px;
+    min-height: 28px;
+    max-height: 28px;
+}
+
+QPushButton:focus {
+    color: animate(text-button-focus);
+    background-color: animate(background-focus);
+    border-color: animate(background-focus);
+}
+
+QPushButton:hover {
+    color: animate(text-button-hover);
+    background-color: animate(background-hover);
+    border-color: animate(background-hover);
+}

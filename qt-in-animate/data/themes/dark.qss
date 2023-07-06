@@ -1,33 +1,17 @@
-QWidget {
-    font-family: "Adobe Clean";
-    font-size: 14px;
-    color: #e3e3e3;
-    background-color: #333333;
-    padding: 0;
-    margin: 0;
-    outline: none;
+AnimateTheme {
+    name: "Dark";
+    author: "DeMineArchiver";
+    
 }
 
-QDialog {
-    padding: 16px;
-}
+AnimatePalette {
+    text: #e3e3e3;
+    background: #333333;
 
-QPushButton {
-    min-width: 76px;
-    height: 32px;
-    border: 2px solid #e3e3e3;
-    border-radius: 16px;   
-}
-QPushButton:focus {
-	background-color: #1573e6;
-	border-color: #1573e6;
-}
-QPushButton:hover {
-	color: #262626;
-	background-color: #e3e3e3;
-	border-color: #e3e3e3;
-}
+    text-button-hover: #262626;
+    text-button-focus: #e3e3e3;
 
-QDialogButtonBox QPushButton {
-    margin-left: 4px;
+
+    background-hover: #e3e3e3;
+    background-focus: #1573e6;
 }
