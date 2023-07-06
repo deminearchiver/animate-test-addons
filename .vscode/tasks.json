@@ -12,7 +12,7 @@
 			"preset": "${command:cmake.activeBuildPresetName}",
 			"group": {
 				"kind": "build",
-				"isDefault": true
+				"isDefault": false
 			},
 			"problemMatcher": []
 		},
@@ -23,7 +23,7 @@
 			"command": "cmake --install build/animate11 --config Release",
 			"group": {
 				"kind": "test",
-				"isDefault": true
+				"isDefault": false
 			},
 			"problemMatcher": [],
 			"dependsOn": "CMake: build \"animate11\"",
@@ -56,6 +56,34 @@
 			"problemMatcher": [],
 			"dependsOn": "CMake: build \"altblocker\"",
 			"dependsOrder": "sequence"
-		}
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: build \"qt-in-animate\"",
+			"detail": "CMake task to build the \"qt-in-animate\" target",
+			"command": "build",
+			"targets": [
+				"qt-in-animate"
+			],
+			"preset": "${command:cmake.activeBuildPresetName}",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "shell",
+			"label": "CMake: install \"qt-in-animate\"",
+			"detail": "CMake task to build and install the \"qt-in-animate\" target",
+			"command": "cmake --install build/qt-in-animate --config Release",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"dependsOn": "CMake: build \"qt-in-animate\"",
+			"dependsOrder": "sequence"
+		},
 	]
 }
