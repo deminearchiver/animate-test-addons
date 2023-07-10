@@ -1,6 +1,7 @@
 {
     "recommendations": [
-        "llvm-vs-code-extensions.vscode-clangd"
+        "llvm-vs-code-extensions.vscode-clangd",
+        "ms-vscode.powershell"
     ],
     "unwantedRecommendations": [
         "ms-vscode.cpptools"
