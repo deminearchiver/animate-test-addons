@@ -1,9 +1,9 @@
-param(
-    [Parameter(Mandatory)]
-    [ValidateSet('animate11')]
-    [string]
-    $Addon
-)
+# param(
+#     [Parameter(Mandatory)]
+#     [ValidateSet('animate11')]
+#     [string]
+#     $Addon
+# )
 
 Clear-Host
 
@@ -55,7 +55,7 @@ $asset = $release.assets | Where-Object { $_.name -imatch '\.dll$' }
 
 Write-Host "Latest release: $($release.tag_name)"
 
-$animate_path = Join-Path $env:LOCALAPPDATA 'Adobe' "$($animate_version.name)", "$($animate_version.language)", 'Configuration', 'External Libraries', $asset.name
+$animate_path = Join-Path -Path $env:LOCALAPPDATA -ChildPath 'Adobe' -AdditionalChildPath $animate_version.name, $animate_version.language, 'Configuration', 'External Libraries', $asset.name.ToString()
 
 Pause
 
