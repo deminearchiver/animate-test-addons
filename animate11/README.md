@@ -80,6 +80,6 @@ This addon colors **all titlebars** in Adobe Animate the same as their windows
 - **Adobe Animate 2020** or newer
 ### Installation via PowerShell
 ```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression "& { $(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/DeMineArchiver/animate-test-addons/master/scripts/install.ps1') -Addon animate11 }"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-Expression "& { $(Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/DeMineArchiver/animate-test-addons/master/scripts/install.ps1') } -Addon animate11"
 ```
 ### See [**# Installation**](https://github.com/DeMineArchiver/animate-test-addons#Installation "github.com/DeMineArchiver/animate-test-addons")
