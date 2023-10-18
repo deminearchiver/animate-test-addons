@@ -15,7 +15,7 @@ project(
 
 file(
     GLOB animate11_SRC
-    "src/*.cc"
+    "src/*.cpp"
 )
 # qt_add_library(${PROJECT_NAME} SHARED "${animate11_SRC}")
 add_library(${PROJECT_NAME} SHARED "${animate11_SRC}")
@@ -33,5 +33,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES WIN32_EXECUTABLE OFF MACOSX_BUN
 
 install(
     TARGETS ${PROJECT_NAME}
-    RUNTIME DESTINATION "$ENV{LOCALAPPDATA}/Adobe/Animate 2023/en_US/Configuration/External Libraries"
+    RUNTIME DESTINATION "$ENV{LOCALAPPDATA}/Adobe/Animate 2024/en_US/Configuration/External Libraries"
 )

@@ -8,6 +8,7 @@
 #include <string>
 #include <cstring>
 #include <unordered_map>
+#include <theme.h>
 
 namespace fs = std::filesystem;
 
@@ -59,12 +60,14 @@ struct AnimateColors {
     unsigned long secondary;
 };
 
-std::unordered_map<float, AnimateColors> colors = {
-    { 0, { 0x1f1f1f, 0x1b1b1b } },
-    { 0.25, { 0x333333, 0x1b1b1b } },
-    { 0.75, { 0xf5f5f5, 0xfdfdfd } },
-    { 1, { 0xffffff, 0xfdfdfd } }
-};
+// std::unordered_map<float, AnimateColors> colors = {
+//     { 0, { 0x1f1f1f, 0x1b1b1b } },
+//     { 0.25, { 0x333333, 0x1b1b1b } },
+//     { 0.75, { 0xf5f5f5, 0xfdfdfd } },
+//     { 1, { 0xffffff, 0xfdfdfd } }
+// };
+
+std::unordered_map<float, AnimateColors> colors;
 
 float theme_brightness = 0.25;
 
@@ -119,6 +122,14 @@ bool LoadTheme() {
     roaming /= "Roaming/Adobe/Animate";
     roaming /= version;
     roaming /= "Application.xml";
+    
+    int nVersion = std::stoi(version);
+
+    if(nVersion >= 2024) {
+        colors = ANIMATE_2024_COLORS;
+    } else {
+        colors = ANIMATE_2020_COLORS;
+    }
 
     pugi::xml_document document;
     if(!document.load_file(roaming.generic_wstring().c_str())) return false;
