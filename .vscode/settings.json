@@ -1,3 +1,8 @@
 {
-    "cmake.allowCommentsInPresetsFile": true
+    "cmake.allowCommentsInPresetsFile": true,
+    "files.associations": {
+        ".env": "dotenv",
+        "unordered_map": "cpp",
+        "xstring": "cpp"
+    }
 }

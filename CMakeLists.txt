@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(animate-test-addons)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/6.5.1/msvc2019_64/lib/cmake")
+set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/msvc2019_64/lib/cmake")
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Qml Gui)
 
 add_subdirectory("lib/animate_jsapi")
